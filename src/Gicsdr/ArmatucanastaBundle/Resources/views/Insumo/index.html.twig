@@ -1,35 +1,34 @@
-<h1>Lista de Insumos</h1>
+{% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
 
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id_unidad</th>
-            <th>Codigo</th>
-            <th>Descripcion</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('insumo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.idunidad }}</td>
-            <td>{{ entity.codigo }}</td>
-            <td>{{ entity.descripcion }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('insumo_show', { 'id': entity.id }) }}">Mostrar</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('insumo_edit', { 'id': entity.id }) }}">Editar</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<h1>Lista de Insumos</h1>
+<div class="row">
+    <div class="span1">#</div>
+    <div class="span1">Id_unidad</div>
+    <div class="span1">Codigo</div>
+    <div class="span2">Descripcion</div>
+    <div class="span1">Actions</div>
+</div>
+{% for entity in entities %}
+    <div class="row">
+        <div class="span1"><a href="{{ path('insumo_show', { 'id':entity.id }) }}">{{ entity.id }}</a></div>
+        <div class="span1">{{ entity.idunidad }}</div>
+        <div class="span1">{{ entity.codigo }}</div>
+        <div class="span2">{{ entity.descripcion }}</div>
+        <div class="span1">
+            <ul>
+                <li>
+                    <a href="{{ path('insumo_show', { 'id': entity.id }) }}">Mostrar</a>
+                </li>
+                <li>
+                    <a href="{{ path('insumo_edit', { 'id': entity.id }) }}">Editar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endfor %}
 
 <ul>
     <li>
@@ -38,3 +37,4 @@
         </a>
     </li>
 </ul>
+{% endblock %}

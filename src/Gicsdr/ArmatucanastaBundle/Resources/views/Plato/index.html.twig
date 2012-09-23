@@ -6,37 +6,31 @@
 <h1>Lista de Platos</h1>
 
 <table class="records_list">
-    <thead>
-        <tr>
-            <th>Cocina</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Num. Personas</th>
-            <th>Preparación</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div class="row">
+            <div class="span1">Cocina</div>
+            <div class="span2">Nombre</div>
+            <div class="span4">Descripción</div>
+            <div class="span1">Num. Personas</div>
+            <div class="span3">Preparación</div>
+            <div class="span1">Actions</div>
+    </div>
     {% for entity in entities %}
-        <tr>
-            <td>{{ entity.cocinadescripcion }}</td>
-            <td>{{ entity.nombre }}</td>
-            <td>{{ entity.descripcion }}</td>
-            <td>{{ entity.numpersonas }}</td>
-            <td>{{ entity.preparacion }}</td>
-            <td>
-                <ul>
+        <div class="row">
+            <div class="span1">{{ entity.cocinadescripcion }}</div>
+            <div class="span2">{{ entity.nombre }}</div>
+            <div class="span4">{{ entity.descripcion }}</div>
+            <div class="span1">{{ entity.numpersonas }}</div>
+            <div class="span3">{{ entity.preparacion }}</div>
+                <div class="span1">
                     <li>
                         <a href="{{ path('plato_show', { 'id': entity.id }) }}">Mostrar</a>
                     </li>
                     <li>
                         <a href="{{ path('plato_edit', { 'id': entity.id }) }}">Editar</a>
                     </li>
-                </ul>
-            </td>
-        </tr>
+                </div>
+        </div>
     {% endfor %}
-    </tbody>
 </table>
 
 <ul>
