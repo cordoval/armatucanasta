@@ -1,0 +1,6 @@
+homepage:
+    pattern:  /hello
+    defaults: { _controller: GicsdrArmatucanastaBundle:Default:index }
+logout:
+    pattern:  /logout
+
