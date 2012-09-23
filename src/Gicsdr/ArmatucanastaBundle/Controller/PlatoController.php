@@ -22,7 +22,7 @@ class PlatoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GicsdrArmatucanastaBundle:Plato')->findAll();
+        $entities = $em->getRepository('GicsdrArmatucanastaBundle:Viewplato')->findAll();
 
         return $this->render('GicsdrArmatucanastaBundle:Plato:index.html.twig', array(
             'entities' => $entities,

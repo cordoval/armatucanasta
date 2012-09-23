@@ -22,7 +22,7 @@ class IngredienteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GicsdrArmatucanastaBundle:Ingrediente')->findAll();
+        $entities = $em->getRepository('GicsdrArmatucanastaBundle:Viewingrediente')->findAll();
 
         return $this->render('GicsdrArmatucanastaBundle:Ingrediente:index.html.twig', array(
             'entities' => $entities,
