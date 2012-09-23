@@ -11,23 +11,23 @@
             <td>{{ plato.id }}</td>
         </tr>
         <tr>
-            <th>Id_cocina</th>
+            <th>TIPO DE COMIDA</th>
             <td>{{ plato.cocinadescripcion }}</td>
         </tr>
         <tr>
-            <th>Nombre</th>
+            <th>PLATO</th>
             <td>{{ plato.nombre }}</td>
         </tr>
         <tr>
-            <th>Descripcion</th>
+            <th>DESCRIPCIÓN</th>
             <td>{{ plato.descripcion }}</td>
         </tr>
         <tr>
-            <th>Num_personas</th>
+            <th># PERSONAS</th>
             <td>{{ plato.numpersonas }}</td>
         </tr>
         <tr>
-            <th>Preparacion</th>
+            <th>PREPARACIÓN</th>
             <td>{{ plato.preparacion }}</td>
         </tr>
         <tr>
@@ -36,14 +36,23 @@
         </tr>
     </tbody>
 </table>
+<p>INGREDIENTES</p>
+
+<div class="row">
+    <div class="span1">Cantidad</div>
+    <div class="span1">Unidad</div>
+    <div class="span4">Ingrediente</div>
+</div>
 
 {% for ingrediente in ingredientes %}
-    <tr>
-        <td>{{ ingrediente.unidaddescbreve }}</td>
-        <td>{{ ingrediente.insumodescripcion }}</td>
-        <td>{{ ingrediente.cantidad }}</td>
-    </tr>
+    <div class="row">
+        <div class="span1">{{ ingrediente.cantidad }}</div>
+        <div class="span1">{{ ingrediente.unidaddescbreve }}</div>
+        <div class="span4">{{ ingrediente.insumodescripcion }}</div>
+    </div>
 {% endfor %}
+
+<p>AGREGAR INGREDIENTE</p>
 
 <form action="{{ path('plato_agregaringrediente', { 'id': plato.id }) }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
