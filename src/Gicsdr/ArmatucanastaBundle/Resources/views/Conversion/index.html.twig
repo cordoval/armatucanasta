@@ -8,18 +8,17 @@
 <table class="records_list">
     <thead>
         <tr>
-            <th>Id_unidad_desde</th>
-            <th>Id_unidad_hasta</th>
+            <th>Desde</th>
+            <th>Hasta</th>
             <th>Factor</th>
-            <th>Actions</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('conversion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.idunidaddesde }}</td>
-            <td>{{ entity.idunidadhasta }}</td>
+            <td>{{ entity.unidaddesdedescripcion }}</td>
+            <td>{{ entity.unidadhastadescripcion }}</td>
             <td>{{ entity.factor }}</td>
             <td>
                 <ul>

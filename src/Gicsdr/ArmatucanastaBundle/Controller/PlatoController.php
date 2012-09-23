@@ -57,7 +57,7 @@ class PlatoController extends Controller
     public function newAction()
     {
         $entity = new Plato();
-        $form   = $this->createForm(new PlatoType(), $entity);
+        $form   = $this->createForm(new PlatoType($this->getCocina()), $entity);
 
         return $this->render('GicsdrArmatucanastaBundle:Plato:new.html.twig', array(
             'entity' => $entity,
@@ -72,7 +72,7 @@ class PlatoController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Plato();
-        $form = $this->createForm(new PlatoType(), $entity);
+        $form = $this->createForm(new PlatoType($this->getCocina()), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -103,7 +103,7 @@ class PlatoController extends Controller
             throw $this->createNotFoundException('Unable to find Plato entity.');
         }
 
-        $editForm = $this->createForm(new PlatoType(), $entity);
+        $editForm = $this->createForm(new PlatoType($this->getCocina()), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('GicsdrArmatucanastaBundle:Plato:edit.html.twig', array(
@@ -128,7 +128,7 @@ class PlatoController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new PlatoType(), $entity);
+        $editForm = $this->createForm(new PlatoType($this->getCocina()), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
@@ -175,5 +175,17 @@ class PlatoController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+
+ 	public function getCocina()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cocinas = $em->getRepository('GicsdrArmatucanastaBundle:Cocina')->findAll();
+        $cocinas_arr = array();
+        foreach($cocinas as $cocina)
+        {
+            $cocinas_arr[$cocina->getId()] = $cocina->getDescripcion();
+        }
+        return $cocinas_arr;
     }
 }
