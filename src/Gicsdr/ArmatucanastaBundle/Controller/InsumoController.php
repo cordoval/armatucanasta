@@ -22,7 +22,7 @@ class InsumoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GicsdrArmatucanastaBundle:Insumo')->findAll();
+        $entities = $em->getRepository('GicsdrArmatucanastaBundle:Viewinsumo')->findAll();
 
         return $this->render('GicsdrArmatucanastaBundle:Insumo:index.html.twig', array(
             'entities' => $entities,
