@@ -1,6 +1,6 @@
 {% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Mostrar Plato{% endblock %}
 
 {% block body %}
 <h1>Plato</h1>
@@ -8,7 +8,6 @@
 <table class="record_properties">
     <tbody>
         <tr>
-            <th>Id</th>
             <td>{{ entity.id }}</td>
         </tr>
         <tr>
@@ -41,18 +40,18 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('plato') }}">
-            Back to the list
+            Volver a la lista
         </a>
     </li>
     <li>
         <a href="{{ path('plato_edit', { 'id': entity.id }) }}">
-            Edit
+            Editar
         </a>
     </li>
     <li>
         <form action="{{ path('plato_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">Borrar</button>
         </form>
     </li>
 </ul>

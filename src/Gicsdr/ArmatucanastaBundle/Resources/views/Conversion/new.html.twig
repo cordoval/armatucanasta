@@ -1,21 +1,21 @@
 {% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Crear una conversión{% endblock %}
 
 {% block body %}
-<h1>Conversion creation</h1>
+<h1>Crear una conversión</h1>
 
 <form action="{{ path('conversion_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">Create</button>
+        <button type="submit">Crear</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('conversion') }}">
-            Back to the list
+            Volver a la lista
         </a>
     </li>
 </ul>

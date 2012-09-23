@@ -1,14 +1,13 @@
 {% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Lista de Platos{% endblock %}
 
 {% block body %}
-<h1>Plato list</h1>
+<h1>Lista de Platos</h1>
 
 <table class="records_list">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Id_cocina</th>
             <th>Nombre</th>
             <th>Descripcion</th>
@@ -31,10 +30,10 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('plato_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('plato_show', { 'id': entity.id }) }}">Mostrar</a>
                     </li>
                     <li>
-                        <a href="{{ path('plato_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('plato_edit', { 'id': entity.id }) }}">Editar</a>
                     </li>
                 </ul>
             </td>
@@ -46,7 +45,7 @@
 <ul>
     <li>
         <a href="{{ path('plato_new') }}">
-            Create a new entry
+            Crear una nueva lista
         </a>
     </li>
 </ul>

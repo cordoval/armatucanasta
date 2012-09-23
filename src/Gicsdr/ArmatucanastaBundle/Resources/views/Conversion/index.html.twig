@@ -1,14 +1,13 @@
 {% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Lista de Conversión{% endblock %}
 
 {% block body %}
-<h1>Conversion list</h1>
+<h1>lista de conversión</h1>
 
 <table class="records_list">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Id_unidad_desde</th>
             <th>Id_unidad_hasta</th>
             <th>Factor</th>
@@ -25,10 +24,10 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('conversion_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('conversion_show', { 'id': entity.id }) }}">mostrar</a>
                     </li>
                     <li>
-                        <a href="{{ path('conversion_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('conversion_edit', { 'id': entity.id }) }}">editar</a>
                     </li>
                 </ul>
             </td>
@@ -40,7 +39,7 @@
 <ul>
     <li>
         <a href="{{ path('conversion_new') }}">
-            Create a new entry
+            Crear nueva conversión
         </a>
     </li>
 </ul>
