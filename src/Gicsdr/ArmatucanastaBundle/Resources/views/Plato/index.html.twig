@@ -7,30 +7,28 @@
 
 <table class="records_list">
     <div class="row">
-            <div class="span1">Cocina</div>
-            <div class="span2">Nombre</div>
-            <div class="span4">Descripción</div>
-            <div class="span1">Num. Personas</div>
-            <div class="span3">Preparación</div>
-            <div class="span1">Actions</div>
+            <div class="span1">TIPO</div>
+            <div class="span2">PLATO</div>
+            <!-- <div class="span4">Descripción</div> -->
+            <div class="span1">#PERSONAS</div>
+            <div class="span4">PREPARACIÓN</div>
+            <div class="span1">ACCIONES</div>
     </div>
     {% for entity in entities %}
         <div class="row">
             <div class="span1">{{ entity.cocinadescripcion }}</div>
             <div class="span2">{{ entity.nombre }}</div>
-            <div class="span4">{{ entity.descripcion }}</div>
+            <!-- <div class="span4">{{ entity.descripcion }}</div> -->
             <div class="span1">{{ entity.numpersonas }}</div>
             <div class="span3">{{ entity.preparacion }}</div>
-                <div class="span1">
-                    <li>
-                        <a href="{{ path('plato_show', { 'id': entity.id }) }}">Mostrar</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('plato_edit', { 'id': entity.id }) }}">Editar</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('plato_agregaringrediente', { 'id': entity.id }) }}">Ag. Ing.</a>
-                    </li>
+                <div class="row">
+                        <div class="span1"><a href="{{ path('plato_show', {
+                        'id': entity.id }) }}">Mostrar</a></div>
+                        <div class="span1"><a href="{{ path('plato_edit', {
+                        'id': entity.id }) }}">Editar</a></div>
+                        <div class="span2"><a href="{{
+                        path('plato_agregaringrediente', { 'id': entity.id })
+                        }}">Agregar Ingredientes</a></div>
                 </div>
         </div>
     {% endfor %}

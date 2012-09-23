@@ -3,12 +3,12 @@
 {% block title %}Mostrar Plato{% endblock %}
 
 {% block body %}
-<h1>Plato</h1>
+<h1>{{plato.nombre}}</h1>
 
 <table class="record_properties">
     <tbody>
         <tr>
-            <td>{{ plato.id }}</td>
+            <!-- <td>{{ plato.id }}</td> -->
         </tr>
         <tr>
             <th>TIPO DE COMIDA</th>
@@ -42,6 +42,7 @@
     <div class="span1">Cantidad</div>
     <div class="span1">Unidad</div>
     <div class="span4">Ingrediente</div>
+    <div class="span4">Precio</div>
 </div>
 
 {% for ingrediente in ingredientes %}
@@ -49,6 +50,7 @@
         <div class="span1">{{ ingrediente.cantidad }}</div>
         <div class="span1">{{ ingrediente.unidaddescbreve }}</div>
         <div class="span4">{{ ingrediente.insumodescripcion }}</div>
+        <div class="span1"></div>
     </div>
 {% endfor %}
 
