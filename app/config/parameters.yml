@@ -1,6 +1,7 @@
 parameters:
     database_driver: pdo_pgsql
-    database_host: 146.255.102.79
+    #database_host: 146.255.102.79
+    database_host: 192.168.1.115
     database_port: null
     database_name: armatucanasta
     database_user: gicsdr
