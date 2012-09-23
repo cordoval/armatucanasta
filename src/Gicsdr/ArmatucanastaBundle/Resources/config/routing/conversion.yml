@@ -1,0 +1,30 @@
+conversion:
+    pattern:  /
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Conversion:index" }
+
+conversion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Conversion:show" }
+
+conversion_new:
+    pattern:  /new
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Conversion:new" }
+
+conversion_create:
+    pattern:  /create
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Conversion:create" }
+    requirements: { _method: post }
+
+conversion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Conversion:edit" }
+
+conversion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Conversion:update" }
+    requirements: { _method: post }
+
+conversion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Conversion:delete" }
+    requirements: { _method: post }
