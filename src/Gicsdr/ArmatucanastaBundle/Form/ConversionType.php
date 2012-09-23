@@ -8,11 +8,15 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ConversionType extends AbstractType
 {
+    public function __construct($unidades)
+    {
+        $this->unidades = $unidades;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id_unidad_desde')
-            ->add('id_unidad_hasta')
+            ->add('id_unidad_desde', 'choice', array('choices' => $this->unidades, 'expanded' => false, 'required' => true, 'label' => 'Desde'))
+            ->add('id_unidad_hasta', 'choice', array('choices' => $this->unidades, 'expanded' => false, 'required' => true, 'label' => 'Desde'))
             ->add('factor')
         ;
     }
