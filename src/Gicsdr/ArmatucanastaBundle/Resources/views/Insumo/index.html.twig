@@ -9,7 +9,7 @@
     <div class="span1">Id_unidad</div>
     <div class="span1">Codigo</div>
     <div class="span5">Descripcion</div>
-    <div class="span1">Actions</div>
+    <div class="span1">Acciones</div>
 </div>
 {% for entity in entities %}
     <div class="row">
@@ -17,15 +17,15 @@
         <div class="span1">{{ entity.idunidad }}</div>
         <div class="span1">{{ entity.codigo }}</div>
         <div class="span5">{{ entity.descripcion }}</div>
-        <div class="span1">
-            <ul>
-                <li>
+        <div class="span2">
+            <div class="row">
+                <div class="span1">
                     <a href="{{ path('insumo_show', { 'id': entity.id }) }}">Mostrar</a>
-                </li>
-                <li>
+                </div>
+                <div class="span1">
                     <a href="{{ path('insumo_edit', { 'id': entity.id }) }}">Editar</a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
 {% endfor %}
