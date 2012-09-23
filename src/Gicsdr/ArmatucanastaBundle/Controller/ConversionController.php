@@ -22,7 +22,7 @@ class ConversionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GicsdrArmatucanastaBundle:Conversion')->findAll();
+        $entities = $em->getRepository('GicsdrArmatucanastaBundle:Viewconversion')->findAll();
 
         return $this->render('GicsdrArmatucanastaBundle:Conversion:index.html.twig', array(
             'entities' => $entities,

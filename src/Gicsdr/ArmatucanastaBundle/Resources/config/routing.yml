@@ -18,3 +18,6 @@ GicsdrArmatucanastaBundle_plato:
 GicsdrArmatucanastaBundle_ingrediente:
     resource: "@GicsdrArmatucanastaBundle/Resources/config/routing/ingrediente.yml"
     prefix:   /ingrediente
+GicsdrArmatucanastaBundle_insumo:
+    resource: "@GicsdrArmatucanastaBundle/Resources/config/routing/insumo.yml"
+    prefix:   /insumo
