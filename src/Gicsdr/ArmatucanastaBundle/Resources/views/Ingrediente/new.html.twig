@@ -1,3 +1,8 @@
+{% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
 <h1>Ingrediente creation</h1>
 
 <form action="{{ path('ingrediente_create') }}" method="post" {{ form_enctype(form) }}>
@@ -14,3 +19,4 @@
         </a>
     </li>
 </ul>
+{% endblock %}
