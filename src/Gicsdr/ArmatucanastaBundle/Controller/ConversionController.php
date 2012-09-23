@@ -57,7 +57,7 @@ class ConversionController extends Controller
     public function newAction()
     {
         $entity = new Conversion();
-        $form   = $this->createForm(new ConversionType(), $entity);
+        $form   = $this->createForm(new ConversionType($this->getUnidades()), $entity);
 
         return $this->render('GicsdrArmatucanastaBundle:Conversion:new.html.twig', array(
             'entity' => $entity,
@@ -72,7 +72,7 @@ class ConversionController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Conversion();
-        $form = $this->createForm(new ConversionType(), $entity);
+        $form = $this->createForm(new ConversionType($this->getUnidades()), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -103,7 +103,7 @@ class ConversionController extends Controller
             throw $this->createNotFoundException('Unable to find Conversion entity.');
         }
 
-        $editForm = $this->createForm(new ConversionType(), $entity);
+        $editForm = $this->createForm(new ConversionType($this->getUnidades()), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('GicsdrArmatucanastaBundle:Conversion:edit.html.twig', array(
@@ -122,13 +122,14 @@ class ConversionController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('GicsdrArmatucanastaBundle:Conversion')->find($id);
+        $unidades = $em->getRepository('GicsdrArmatucanastaBundle:Unidad')->findAll();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Conversion entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new ConversionType(), $entity);
+        $editForm = $this->createForm(new ConversionType($this->getUnidades()), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
@@ -175,5 +176,16 @@ class ConversionController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+    public function getUnidades()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $unidades = $em->getRepository('GicsdrArmatucanastaBundle:Unidad')->findAll();
+        $unidades_arr = array();
+        foreach($unidades as $unidad)
+        {
+            $unidades_arr[$unidad->getId()] = $unidad->getDescbreve();
+        }
+        return $unidades_arr;
     }
 }
