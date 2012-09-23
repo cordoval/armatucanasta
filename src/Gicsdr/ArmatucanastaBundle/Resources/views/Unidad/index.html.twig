@@ -3,42 +3,40 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-<h1>Unidad list</h1>
-
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Descripción</th>
-            <th>Descbreve</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('unidad_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.descripcion }}</td>
-            <td>{{ entity.descbreve }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('unidad_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('unidad_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
+<h1>Unidad de Medida</h1>
+<div class="row">
+  <div class="span2">
+    Descripción
+  </div>
+  <div class="span6">
+  </div>
+  <div class="span4">
+  </div>
+</div>
+{% for entity in entities %}
+  <div class="row">
+    <div class="span2">
+      {{ entity.descripcion }}
+    </div>
+    <div class="span6">
+      {{ entity.descbreve }}
+    </div>
+    <div class="span4">
+      <ul>
+        <li>
+          <a href="{{ path('unidad_show', { 'id': entity.id }) }}">mostrar</a>
+        </li>
+        <li>
+          <a href="{{ path('unidad_edit', { 'id': entity.id }) }}">editar</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endfor %}
 <ul>
     <li>
         <a href="{{ path('unidad_new') }}">
-            Create a new entry
+            Nueva unidad de medida
         </a>
     </li>
 </ul>
