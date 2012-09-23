@@ -1,0 +1,30 @@
+plato:
+    pattern:  /
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Plato:index" }
+
+plato_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Plato:show" }
+
+plato_new:
+    pattern:  /new
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Plato:new" }
+
+plato_create:
+    pattern:  /create
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Plato:create" }
+    requirements: { _method: post }
+
+plato_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Plato:edit" }
+
+plato_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Plato:update" }
+    requirements: { _method: post }
+
+plato_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Plato:delete" }
+    requirements: { _method: post }

@@ -1,0 +1,47 @@
+<h1>Plato list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Id_cocina</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Num_personas</th>
+            <th>Preparacion</th>
+            <th>Img_path</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('plato_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.idcocina }}</td>
+            <td>{{ entity.nombre }}</td>
+            <td>{{ entity.descripcion }}</td>
+            <td>{{ entity.numpersonas }}</td>
+            <td>{{ entity.preparacion }}</td>
+            <td>{{ entity.imgpath }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('plato_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('plato_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('plato_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

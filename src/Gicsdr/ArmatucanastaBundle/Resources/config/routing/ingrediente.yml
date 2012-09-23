@@ -1,0 +1,30 @@
+ingrediente:
+    pattern:  /
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Ingrediente:index" }
+
+ingrediente_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Ingrediente:show" }
+
+ingrediente_new:
+    pattern:  /new
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Ingrediente:new" }
+
+ingrediente_create:
+    pattern:  /create
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Ingrediente:create" }
+    requirements: { _method: post }
+
+ingrediente_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Ingrediente:edit" }
+
+ingrediente_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Ingrediente:update" }
+    requirements: { _method: post }
+
+ingrediente_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Ingrediente:delete" }
+    requirements: { _method: post }

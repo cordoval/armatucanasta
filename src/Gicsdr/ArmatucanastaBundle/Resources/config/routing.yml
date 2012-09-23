@@ -12,3 +12,9 @@ GicsdrArmatucanastaBundle_cocina:
 GicsdrArmatucanastaBundle_conversion:
     resource: "@GicsdrArmatucanastaBundle/Resources/config/routing/conversion.yml"
     prefix:   /conversion
+GicsdrArmatucanastaBundle_plato:
+    resource: "@GicsdrArmatucanastaBundle/Resources/config/routing/plato.yml"
+    prefix:   /plato
+GicsdrArmatucanastaBundle_ingrediente:
+    resource: "@GicsdrArmatucanastaBundle/Resources/config/routing/ingrediente.yml"
+    prefix:   /ingrediente
