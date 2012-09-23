@@ -57,7 +57,7 @@ class IngredienteController extends Controller
     public function newAction()
     {
         $entity = new Ingrediente();
-        $form   = $this->createForm(new IngredienteType(), $entity);
+        $form   = $this->createForm(new IngredienteType($this->getUnidades(), $this->getInsumos()), $entity);
 
         return $this->render('GicsdrArmatucanastaBundle:Ingrediente:new.html.twig', array(
             'entity' => $entity,
@@ -72,7 +72,7 @@ class IngredienteController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Ingrediente();
-        $form = $this->createForm(new IngredienteType(), $entity);
+        $form = $this->createForm(new IngredienteType($this->getUnidades(), $this->getInsumos()), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -103,7 +103,7 @@ class IngredienteController extends Controller
             throw $this->createNotFoundException('Unable to find Ingrediente entity.');
         }
 
-        $editForm = $this->createForm(new IngredienteType(), $entity);
+        $editForm = $this->createForm(new IngredienteType($this->getUnidades(), $this->getInsumos()), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('GicsdrArmatucanastaBundle:Ingrediente:edit.html.twig', array(
@@ -128,7 +128,7 @@ class IngredienteController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new IngredienteType(), $entity);
+        $editForm = $this->createForm(new IngredienteType($this->getUnidades(), $this->getInsumos()), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
@@ -175,5 +175,28 @@ class IngredienteController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+
+    public function getUnidades()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $unidades = $em->getRepository('GicsdrArmatucanastaBundle:Unidad')->findAll();
+        $unidades_arr = array();
+        foreach($unidades as $unidad)
+        {
+            $unidades_arr[$unidad->getId()] = $unidad->getDescbreve();
+        }
+        return $unidades_arr;
+    }
+    public function getInsumos()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $insumos = $em->getRepository('GicsdrArmatucanastaBundle:Insumo')->findAll();
+        $insumos_arr = array();
+        foreach($insumos as $insumo)
+        {
+            $insumos_arr[$insumo->getId()] = $insumo->getDescripcion();
+        }
+        return $insumos_arr;
     }
 }
