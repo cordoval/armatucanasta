@@ -1,21 +1,21 @@
 {% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Crear una Cocina{% endblock %}
 
 {% block body %}
-<h1>Cocina creation</h1>
+<h1>Creación de Cocina</h1>
 
 <form action="{{ path('cocina_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">Create</button>
+        <button type="submit">Crear</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('cocina') }}">
-            Back to the list
+            volver a la lista
         </a>
     </li>
 </ul>

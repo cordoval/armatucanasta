@@ -1,14 +1,13 @@
 {% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Lista de ingredientes{% endblock %}
 
 {% block body %}
-<h1>Ingrediente list</h1>
+<h1>Lista de Ingredientes</h1>
 
 <table class="records_list">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Id_plato</th>
             <th>Id_unidad</th>
             <th>Id_insumo</th>
@@ -27,10 +26,10 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('ingrediente_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('ingrediente_show', { 'id': entity.id }) }}">Mostrar</a>
                     </li>
                     <li>
-                        <a href="{{ path('ingrediente_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('ingrediente_edit', { 'id': entity.id }) }}">editar</a>
                     </li>
                 </ul>
             </td>
@@ -42,7 +41,7 @@
 <ul>
     <li>
         <a href="{{ path('ingrediente_new') }}">
-            Create a new entry
+            Crear nueva lista de ingredientes
         </a>
     </li>
 </ul>

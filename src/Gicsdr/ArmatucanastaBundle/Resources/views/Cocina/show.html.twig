@@ -1,6 +1,6 @@
 {% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Mostrar Cocina{% endblock %}
 
 {% block body %}
 <h1>Cocina</h1>
@@ -8,11 +8,9 @@
 <table class="record_properties">
     <tbody>
         <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
         </tr>
         <tr>
-            <th>Descripcion</th>
+            <th>Descripción</th>
             <td>{{ entity.descripcion }}</td>
         </tr>
     </tbody>
@@ -21,18 +19,18 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('cocina') }}">
-            Back to the list
+            Volver a la lista
         </a>
     </li>
     <li>
         <a href="{{ path('cocina_edit', { 'id': entity.id }) }}">
-            Edit
+            Editar
         </a>
     </li>
     <li>
         <form action="{{ path('cocina_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">Borrar</button>
         </form>
     </li>
 </ul>

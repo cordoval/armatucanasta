@@ -1,14 +1,13 @@
 {% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Mostrar la conversión{% endblock %}
 
 {% block body %}
-<h1>Conversion</h1>
+<h1>Conversión</h1>
 
 <table class="record_properties">
     <tbody>
         <tr>
-            <th>Id</th>
             <td>{{ entity.id }}</td>
         </tr>
         <tr>
@@ -29,18 +28,18 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('conversion') }}">
-            Back to the list
+            Volver a la lista
         </a>
     </li>
     <li>
         <a href="{{ path('conversion_edit', { 'id': entity.id }) }}">
-            Edit
+            Editar
         </a>
     </li>
     <li>
         <form action="{{ path('conversion_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">Borrar</button>
         </form>
     </li>
 </ul>
