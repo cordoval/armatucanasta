@@ -5772,3 +5772,7 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+
+#gicsdr_armatucanastabundle_ingredientetype ul li{
+    display :none;
+}
