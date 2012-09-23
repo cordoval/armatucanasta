@@ -1,0 +1,62 @@
+{% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
+
+{% block title %}Mostrar Plato{% endblock %}
+
+{% block body %}
+<h1>Plato</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <td>{{ plato.id }}</td>
+        </tr>
+        <tr>
+            <th>Id_cocina</th>
+            <td>{{ plato.cocinadescripcion }}</td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <td>{{ plato.nombre }}</td>
+        </tr>
+        <tr>
+            <th>Descripcion</th>
+            <td>{{ plato.descripcion }}</td>
+        </tr>
+        <tr>
+            <th>Num_personas</th>
+            <td>{{ plato.numpersonas }}</td>
+        </tr>
+        <tr>
+            <th>Preparacion</th>
+            <td>{{ plato.preparacion }}</td>
+        </tr>
+        <tr>
+            <th>Img_path</th>
+            <td>{{ plato.imgpath }}</td>
+        </tr>
+    </tbody>
+</table>
+
+{% for ingrediente in ingredientes %}
+    <tr>
+        <td>{{ ingrediente.unidaddescbreve }}</td>
+        <td>{{ ingrediente.insumodescripcion }}</td>
+        <td>{{ ingrediente.cantidad }}</td>
+    </tr>
+{% endfor %}
+
+<form action="{{ path('plato_agregaringrediente', { 'id': plato.id }) }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Agregar</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('plato') }}">
+            Volver a la lista
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -6,7 +6,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Gicsdr\ArmatucanastaBundle\Entity\Plato;
+use Gicsdr\ArmatucanastaBundle\Entity\Ingrediente;
 use Gicsdr\ArmatucanastaBundle\Form\PlatoType;
+use Gicsdr\ArmatucanastaBundle\Form\IngredienteType;
 
 /**
  * Plato controller.
@@ -14,6 +16,34 @@ use Gicsdr\ArmatucanastaBundle\Form\PlatoType;
  */
 class PlatoController extends Controller
 {
+
+    public function agregaringredienteAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $plato = $em->getRepository('GicsdrArmatucanastaBundle:Viewplato')->find($id);
+        $ingredientes = $em->getRepository('GicsdrArmatucanastaBundle:Viewingrediente')->findBy(array('id_plato' => $id));
+
+        $entity  = new Ingrediente();
+        $form = $this->createForm(new IngredienteType($this->getUnidades(), $this->getInsumos()), $entity);
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $entity->setIdPlato($id);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('plato_agregaringrediente', array('id' => $entity->getIdPlato())));
+        }
+
+        return $this->render('GicsdrArmatucanastaBundle:Plato:agregaringrediente.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+            'ingredientes' => $ingredientes,
+            'plato' => $plato,
+        ));
+    }
+
     /**
      * Lists all Plato entities.
      *
@@ -187,5 +217,27 @@ class PlatoController extends Controller
             $cocinas_arr[$cocina->getId()] = $cocina->getDescripcion();
         }
         return $cocinas_arr;
+    }
+    public function getUnidades()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $unidades = $em->getRepository('GicsdrArmatucanastaBundle:Unidad')->findAll();
+        $unidades_arr = array();
+        foreach($unidades as $unidad)
+        {
+            $unidades_arr[$unidad->getId()] = $unidad->getDescbreve();
+        }
+        return $unidades_arr;
+    }
+    public function getInsumos()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $insumos = $em->getRepository('GicsdrArmatucanastaBundle:Insumo')->findAll();
+        $insumos_arr = array();
+        foreach($insumos as $insumo)
+        {
+            $insumos_arr[$insumo->getId()] = $insumo->getDescripcion();
+        }
+        return $insumos_arr;
     }
 }

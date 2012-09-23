@@ -28,3 +28,6 @@ plato_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "GicsdrArmatucanastaBundle:Plato:delete" }
     requirements: { _method: post }
+plato_agregaringrediente:
+    pattern:  /{id}/agregaringrediente
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Plato:agregaringrediente" }
