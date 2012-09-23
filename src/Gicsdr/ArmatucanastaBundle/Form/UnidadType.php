@@ -11,7 +11,7 @@ class UnidadType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('desc')
+            ->add('descripcion')
             ->add('descbreve')
         ;
     }

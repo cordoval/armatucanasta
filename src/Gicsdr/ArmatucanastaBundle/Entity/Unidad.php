@@ -22,11 +22,11 @@ class Unidad
     private $id;
 
     /**
-     * @var string $desc
+     * @var string $descripcion
      *
-     * @ORM\Column(name="desc", type="string", length=255)
+     * @ORM\Column(name="descripcion", type="string", length=255)
      */
-    private $desc;
+    private $descripcion;
 
     /**
      * @var string $descbreve
@@ -47,26 +47,26 @@ class Unidad
     }
 
     /**
-     * Set desc
+     * Set descripcion
      *
-     * @param string $desc
+     * @param string $descripcion
      * @return Unidad
      */
-    public function setDesc($desc)
+    public function setDescripcion($descripcion)
     {
-        $this->desc = $desc;
+        $this->descripcion = $descripcion;
     
         return $this;
     }
 
     /**
-     * Get desc
+     * Get descripcion
      *
      * @return string 
      */
-    public function getDesc()
+    public function getDescripcion()
     {
-        return $this->desc;
+        return $this->descripcion;
     }
 
     /**

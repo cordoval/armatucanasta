@@ -1,10 +1,15 @@
+{% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
 <h1>Unidad list</h1>
 
 <table class="records_list">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Desc</th>
+            <th>Descripción</th>
             <th>Descbreve</th>
             <th>Actions</th>
         </tr>
@@ -13,7 +18,7 @@
     {% for entity in entities %}
         <tr>
             <td><a href="{{ path('unidad_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.desc }}</td>
+            <td>{{ entity.descripcion }}</td>
             <td>{{ entity.descbreve }}</td>
             <td>
                 <ul>
@@ -37,3 +42,4 @@
         </a>
     </li>
 </ul>
+{% endblock %}
