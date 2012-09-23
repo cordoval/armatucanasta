@@ -5776,3 +5776,16 @@ a.badge:hover {
 #gicsdr_armatucanastabundle_ingredientetype ul li{
     display :none;
 }
+
+.aligncenter {
+    text-align : center;
+    font-weight : bold;
+}
+
+.fontsmall{
+    font-size : 10px;
+}
+
+.row {
+    margin-bottom: 10px;
+}
