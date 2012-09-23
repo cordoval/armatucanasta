@@ -1,10 +1,10 @@
 parameters:
-    database_driver: pdo_mysql
-    database_host: localhost
+    database_driver: pdo_pgsql
+    database_host: 146.255.102.79
     database_port: null
-    database_name: symfony
-    database_user: root
-    database_password: null
+    database_name: armatucanasta
+    database_user: gicsdr
+    database_password: gicsdr==$$
     mailer_transport: smtp
     mailer_host: localhost
     mailer_user: null

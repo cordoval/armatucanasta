@@ -3,4 +3,7 @@ homepage:
     defaults: { _controller: GicsdrArmatucanastaBundle:Default:index }
 logout:
     pattern:  /logout
+GicsdrArmatucanastaBundle_unidad:
+    resource: "@GicsdrArmatucanastaBundle/Resources/config/routing/unidad.yml"
+    prefix:   /unidad
 

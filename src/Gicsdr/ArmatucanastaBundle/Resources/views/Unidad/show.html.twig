@@ -1,0 +1,37 @@
+<h1>Unidad</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Desc</th>
+            <td>{{ entity.desc }}</td>
+        </tr>
+        <tr>
+            <th>Descbreve</th>
+            <td>{{ entity.descbreve }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('unidad') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('unidad_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('unidad_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
