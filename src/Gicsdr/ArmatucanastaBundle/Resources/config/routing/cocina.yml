@@ -1,0 +1,30 @@
+cocina:
+    pattern:  /
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Cocina:index" }
+
+cocina_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Cocina:show" }
+
+cocina_new:
+    pattern:  /new
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Cocina:new" }
+
+cocina_create:
+    pattern:  /create
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Cocina:create" }
+    requirements: { _method: post }
+
+cocina_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Cocina:edit" }
+
+cocina_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Cocina:update" }
+    requirements: { _method: post }
+
+cocina_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GicsdrArmatucanastaBundle:Cocina:delete" }
+    requirements: { _method: post }

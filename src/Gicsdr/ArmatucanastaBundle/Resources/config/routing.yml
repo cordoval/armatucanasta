@@ -6,4 +6,6 @@ logout:
 GicsdrArmatucanastaBundle_unidad:
     resource: "@GicsdrArmatucanastaBundle/Resources/config/routing/unidad.yml"
     prefix:   /unidad
-
+GicsdrArmatucanastaBundle_cocina:
+    resource: "@GicsdrArmatucanastaBundle/Resources/config/routing/cocina.yml"
+    prefix:   /cocina
