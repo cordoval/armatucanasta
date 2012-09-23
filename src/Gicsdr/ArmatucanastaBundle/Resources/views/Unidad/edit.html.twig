@@ -3,11 +3,6 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-{% extends 'GicsdrArmatucanastaBundle::base.html.twig' %}
-
-{% block title %}Home{% endblock %}
-
-{% block body %}
 <h1>Unidad de Medida</h1>
 
 <form action="{{ path('unidad_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
@@ -31,4 +26,4 @@
     </li>
 </ul>
 {% endblock %}
-{% endblock %}
+
